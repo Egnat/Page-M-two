@@ -2,42 +2,45 @@
 //Код работы в вебпак при запуске команды npm run start-dev, npx webpack --watch и npm run build тоже работает. Стили и штмл, и джс работают, фотки с нета работают, фотки и видео с компа пока не выводится на экран
 //Если в джейсоне так "start": "webpack-dev-server --open", то запуск npm run start и автоматически открывается в браузере.
 //Если в джейсоне в скрипте так "start -dev": "webpack-dev-server", то запуск так npm run start-dev и в браузере автоматом не открывает
+
 const path = require('path'); // подключаем встроенный модуль path Node.JS
-//const fs = require('fs');//это встроенный модуль в node.js, можно использовать внутри приложения, в конфиге прописал ему фалс
-const crypto = require('crypto');//@Variable crypto— это встроенный модуль в node.js, в конфиге прописал ему фалс
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //npm i -D html-webpack-plugin i -D это сокращённо install --save-dev
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');//когда подключаю этот плагин, то на экран не выводится контент проекта, а каки-то записи, нужно пересохранить мэйн.джс и мэйн.цсс в дист, или где-то указать "devtool:false", думаю в скрипте джейсона
-const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');//он тут не нужен
-const TerserWebpackPlugin = require('terser-webpack-plugin');//он тут не нужен
+//const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');//он тут не нужен
+//const TerserWebpackPlugin = require('terser-webpack-plugin');//он тут не нужен
+//const fs = require('fs');//это встроенный модуль в node.js, можно использовать внутри приложения, в конфиге прописал ему фалс "browser": {"fs": false},
+//const crypto = require('crypto');//@Variable crypto — это встроенный модуль в node.js, в конфиге прописал ему фалс "browser": {"crypto": false},
 //const FileLoader = require('file-loader');// не нужен в вебпаке 5 это в 4-ом
 
 module.exports = {
-   entry: /*'./src/index.js', можно так писать*/path.join(__dirname, 'src', 'index.js'),//а можно так
+   entry: './src/index.js', //можно так писать /*path.join(__dirname, 'src', 'index.js')*/,//а можно так
    mode: "development",
    output: {
-        filename: '[name].[chunkhash].main.js',///*main*/  .[chunkhash] поставить перед мэйн, если будет нужно. [name] можно убрать и написать main.[chunkhash].js
+        filename: '[name].main.js',///*main*/  .[chunkhash] поставить перед мэйн, если будет нужно. [name] можно убрать и написать main.[chunkhash].js
         path: path.resolve(__dirname, 'dist'),
         assetModuleFilename: 'src/images/[name].[ext]'/*'images/[hash][ext][query]'*/,// можно писать и так и так, ошибки нет. assetModuleFilename замена файлнэйма из вебпак 4, но нужно прописать под тестом где перечисляю расширения фото  type: 'asset/resource' вместо file-loader,
         clean: true,
-        //this: "img"
     }, 
     //resolve: { fallback: {"crypto": false, "fs": false} },//взял с нета
-    resolve: {
-      fallback: {"crypto": false},//"crypto": false, "fs": false, взял с нета если будет ошибка cannot resolve. когда включил, сразу два, то написало, что обнаружены большие файлы, возможно я хочу попробовать [webpack-dev-middleware] wait until bundle finished: /
-      extensions: ['.js', '.json', '.png', '.jpg'],//взял у Владлена
-      alias: {
-       //'@models': path.resolve(__dirname, 'src/models'),//взял у Владлена 
-       '@': path.resolve(__dirname, 'dist'),//взял у Владлена 'src' 
-      }
-    },
+    //resolve: {
+      //fallback: {"crypto": false},//"crypto": false, "fs": false, взял с нета если будет ошибка cannot resolve. когда включил, сразу два, то написало, что обнаружены большие файлы, возможно я хочу попробовать [webpack-dev-middleware] wait until bundle finished: /
+      //extensions: ['.js', '.json', '.png', '.jpg', 'mp4', 'mov', '3gp'],//взял у Владлена
+      //alias: {
+       //'@models': path.resolve(__dirname, 'src/models'),//взял у Владлена написало, что обнаружены большие файлы, возможно я хочу попробовать [webpack-dev-middleware] wait until bundle finished: /
+       //'@': path.resolve(__dirname, 'src'),//взял у Владлена  
+      //}
+    //},
     plugins: [
       new MiniCssExtractPlugin(),
       new HtmlWebpackPlugin({
-        title: 'Марик',
+        title: 'Page',
         template: "./index.html"}),
       new CleanWebpackPlugin(), 
+      //new FileLoader()
+      //new CssMinimizerWebpackPlugin(),
+      //new TerserWebpackPlugin()
     ], 
     devtool: 'inline-source-map', //нужно указать если есть плагин CleanWebpackPlugin
     devServer: {
@@ -65,36 +68,36 @@ module.exports = {
      ],
    },
    // не нужен при запуске команды npm run start-dev, прописал, чтоб было, от фанаря
-   optimization: {
+   /*optimization: {
      minimize: true,
      minimizer: [new CssMinimizerWebpackPlugin(), new TerserWebpackPlugin()] 
-   },
+   },*/
    module: {
      rules: [
-     //{ здесь записываем в один большой объект данные и убираю скобки.....
-       {
-         test: /\.(gif|png|jpg|jpeg|svg)$/i,//из видео youtub. расширение фото и видео
+       { //здесь записываем в один большой объект данные и убираю скобки.....
+       //{
+         test: /\.(gif|png|jpg|jpeg|svg)$/i, //из видео youtub. расширение фото и видео
          type: 'asset/resource',
-       },
+       //},
 
-       {
+       //{
          test: /\.(mp4|mov|3gp)$/i, //видео
          type: 'asset/resource',
-       },
+       //},
 
-       {
-         test: /\.(eot|ttf|woff|woff2)$/i,//из видео youtub. расширения шрифтов
+       //{
+         test: /\.(eot|ttf|woff|woff2)$/i, //из видео youtub. расширения шрифтов
          type: 'asset/resource',
-       },
+       //},
 
-       {
+       //{
          test: /\.css$/i,
          use: [
            {
             loader: MiniCssExtractPlugin.loader, 
             options: {esModule: true,}
            }, 'css-loader'], 
-       },  
+       //},  
 
        /*{
           test: /\.js$/ ,
@@ -120,7 +123,7 @@ module.exports = {
            },
           ],
         }*/
-       //},  ...возле каждого теста
+       },  //...возле каждого теста
      ],
    },
 };

@@ -8,132 +8,15 @@ padding: 0px;/*или не ставить вообще иначе, когда с
 body {
   margin: 0 auto;
   box-sizing: border-box;
-  background-image: url('https://www.chitalnya.ru/upload3/435/f56a1bdcaefa1a422fa0b8eccd786382.gif');
- background-size: cover;
+  background-color: greenyellow;
 }
-
-::-webkit-scrollbar {
-  width : 0.1px; 
-  height: 5px;
-  pacity: 0.02;
-} /* УБРАЛ ПОЛОСУ ПРОКРУТКИ С ЭКРАНА и сделал свою. 
-Когда пишу сайт, чтобы на планшете отображалось содержимое от края до края страницы 
-без зазоров, прокрутку можно отключить. И включить для красоты по готовности сайта.*/
-
-::-webkit-scrollbar-button {height: 50px; background :#42e10e; }  /*2 - кнопка*/  
-
-::-webkit-scrollbar-track {background: #274dd7; }  /*3 - трек */ 
-
-::-webkit-scrollbar-track-piece { background: #e91e63;}  /*4 - видимая часть трека */ 
-
-::-webkit-scrollbar-thumb {background: #fbe100; border-radius: 10px;
- -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); /*inset 1 3 13px rgb(207 10 10 / 64%)*/} /*5 - ползунок */ 
 
 .header { }
-
-.garland-1 {
-position: absolute;
-width: 1235px;
-height: 123px;
-left: 31px;
-z-index: 1;   
-}
-
-.filterGarlandeUndeHeader {
--webkit-filter: grayscale(4%) contrast(59%) opacity(0.7); /*эффекты можно комбинировать*/   
-}
-
-.GarlandeUndeHeader {
-width: 1280px;
-height: 326px;
-}
-
-.h1 {
-position: absolute;
-width: 1248px;
-top: 190px;
-left: 30px;
-
-font-family: "Pacifico", cursive;
-font-size: 67px;
-color: #ffc30e;
-}
-
-.numbers { color: #0177df; }
-
-@-webkit-keyframes mymove {
-  0% {
-    left: 0;
-  }
-  48% {
-    -webkit-transform: rotateY(0deg); 
-  }
-  50% { 
-    left: calc(67% - 100px);/*85% регулируют длину движения элемента*/
-    -webkit-transform: rotateY(180deg);
-  }
-  98% {
-    -webkit-transform: rotateY(180deg); 
-  }
-  100% {
-    left: 0;    
-     -webkit-transform: rotateY(0deg);
-  }
-}
-
-.flyingSanta {
-position: absolute;
-/*animation-duration: 100s;*/ /*регулируется быстрота и медлительность движения при включенном js*/
-/*animation-name: mymove;*/
-top: 83px;
--index: 2;
--webkit-animation: linear infinite;
--webkit-animation-name: mymove;
--webkit-animation-duration: 75s;/*регулируется быстрота и медлительность движения*/
-/*animation-delay: 500s;время через сколько запустится анимация*/
-/*animation: mymove 75s infinite; 
-/*animation-iteration-count: mymove ; /*сколько раз сработает, но пока не работает*/ 
-}
-/*@keyframes mymove {
-from { left:0px; }
-to { left:927px; } /*ставим размер экрана, чтобы гугл исчезал если нужно*
-}*/
-
-.Santa {
-width: 200p;
-height: 100px;/*ширину и высоту  тоже можно устанавливать, самой картинке, не блоку*/
-}
-
-.filterGarlandNealyIframeMarik {
-position: absolute;
-height: 650px;
-top: 367px;
-left: 109px;
-border-radius: 125px;
-box-shadow: 0px 0px 29px 29px yellow;
-}
-
-.garlandNealyIframeMarik {
-width: 1084px;
-height: 650px;
-border-radius: 125px;
-}
 
 .blockIframeMarik {
 position: absolute;
 top: 424px;
 left: 180px;
-}
-
-.filterVinokChristmas {
-position: absolute;
-width: 191px;
-height: 191px;
-top: 1953px;
-right: 948p;
-background-image: url(http://3rebenka.ru/wp-content/uploads/nygif/Advent107.gif);
-background-size: cover;
-z-index: 2;
 }
 
 .iframeMarik {
@@ -144,51 +27,11 @@ background-size: cover;
 box-shadow: 0px 0px 17px 26px rebeccapurple;
 }
 
-.filterGarlendeIframe {
-position: absolute;
-top: -120px;
-left: -98px;
-z-index: 1;
-ackground-image: url(https://cdn.imgbb.ru/user/37/370436/201811/4205ddb39f8b81f7d72c7ef4fc28bad9.gif);
-ackground-size: cover;
-}
-
-.garlende2 {
-width: 1138px;
-height: 65px;
-}
-
 .blockPhotoMarik {
 position: absolute;
 height: 452p;
 top: 1068px;
 left: 340px;
-}
-
-.filterNewYearTree {
-position: absolute;
-height:414px;
-top: 12px;
-right: 687px;
-z-index: 1;
-box-shadow: 0px 0px 9px 19px #d90bc0;
-}
-
-.NewYearTree {
-width: 236px;
-height: 414px;
-border: 1px solid #ff0;
-}
-
-.filterCap {
-position: absolute;
-width: 100px;
-height: 100px;
-top: 54px;
-left: 256px;
-background-image: url(https://friendfunction.ru/local/assets/img/secret-santa.png);
-background-size: cover;
-z-index: 1;
 }
 
 .filteronePhotoMarik {
@@ -203,16 +46,6 @@ height: 452px;
 border-radius: 75px;
 }
 
-.filterShowMan {
-position: absolute;
-width: 223px;
-height: 359px;
-bottom: 45px;
-left: 674px;
-background-image: url(http://3rebenka.ru/wp-content/uploads/nygif/snowman.gif);
-background-size: cover;
-}
-
 .blockOneVideos {
 position: absolute;
 top: 1632px;
@@ -223,17 +56,6 @@ left: 29px;
 display: flex;
 justify-content: space-between;
 align-items: center;
-}
-
-.filterGarlendeblockOneVideos {
-position: absolute;
-bottom: 319px;
-z-index: 1;
-}
-
-.garlende3 {
-width: 1230px;
-height: 80px;
 }
 
 .listItem { 
@@ -260,74 +82,6 @@ border: 1px solid #ff0;
 background-color: #adff2f;
 box-shadow: 0px 0px 25px 15px darkgoldenrod;
 list-style: none;
-}
-
-.filterGarlandeOnSlider {
-position: absolute;
-top: 1953px;
-z-index: 1;
-}
-
-.garlandeOnSlider, .garlandBottomSlider {
-width: 1280px;
-height: 68px;
-}
-
-.filterSock {
-position: absolute;
-top: 1962px;
-left: 1177px;
-ackground-image: url(https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/8344/christmas-stocking-clipart-sm.png);
-ackground-size: cover;
-z-index: 1;
-}
-
-.sock {
-width: 100px;
-height: 198px;
-}
-
-.filterGarlandLeftSlider {
-position: absolute;  
-top: 2376px;
-right: 812px;
-transform: rotate(452deg);
-ackground-image: url(https://i.ibb.co/mcVYTXc/27.gif);/*лучше поставить имж в штмл*/
-ackground-size: cover;
-}
-
-.filterGarlandRightSlider {
-position: absolute;  
-top: 2376px;
-left: 822px;
-transform: rotate(270deg);
-}
-
-.garlandLeftSlider {
-height: 99px;
-}
-
-.garlandRightSlider {
-height: 99px;
-transform: matrix(-1, 0, 0, 1, 0, 0);
-}
-
-.filterGarlandBottomSlider {
-position: absolute;  
-top: 2821px;
-transform: rotate(180deg);  
-}
-
-.filterGarlandeNealySlider {
-position: absolute;
-bottom: -1947px;
-left: 165px;   
-}
-
-.garlandeNealySlider {
-width: 979px;
-height: 801px;
-border-radius: 125px;
 }
 
 .sliderWrapFlex {
@@ -493,175 +247,16 @@ text-decoration-line: none; /*в панориуме нужен, потому ч�
 @media screen and (max-width: 1300px) {}
 
 @media screen and (max-width: 1024px) {
-
-@-webkit-keyframes mymove {
-  0% {
-    left: 0;
-  }
-  48% {
-    -webkit-transform: rotateY(0deg); 
-  }
-  50% { 
-    left: calc(83% - 100px);/*85% регулируют длину движения элемента*/
-    -webkit-transform: rotateY(180deg);
-  }
-  98% {
-    -webkit-transform: rotateY(180deg); 
-  }
-  100% {
-    left: 0;    
-     -webkit-transform: rotateY(0deg);
-  }
-}
-
-.flyingSanta {
-position: absolute;
-top: 44px;
-z-index: 2;
--webkit-animation: linear infinite;
--webkit-animation-name: mymove;
--webkit-animation-duration: 75s;
-}
-
-.filterGarlandeNealySlider{bottom: -2031px;}
-.filterGarlandLeftSlider {right: 563px;}
 }
 
 @media screen and (max-width: 800px) {
-
-@-webkit-keyframes mymove {
-  0% {
-    left: 0;
-  }
-  48% {
-    -webkit-transform: rotateY(0deg); 
-  }
-  50% { 
-    left: calc(102% - 100px);/*85% регулируют длину движения элемента*/
-    -webkit-transform: rotateY(180deg);
-  }
-  98% {
-    -webkit-transform: rotateY(180deg); 
-  }
-  100% {
-    left: 0;    
-     -webkit-transform: rotateY(0deg);
-  }
-}
-
-.flyingSanta {
-position: absolute;
-top: 44px;
-z-index: 2;
--webkit-animation: linear infinite;
--webkit-animation-name: mymove;
--webkit-animation-duration: 75s;
-}  
-
-.filterGarlandeNealySlider{bottom: -1548px;}
-.filterGarlandLeftSlider {right: 329px;}
 }
 
 @media screen and (max-width: 768px) {
-
-@-webkit-keyframes mymove {
-  0% {
-    left: 0;
-  }
-  48% {
-    -webkit-transform: rotateY(0deg); 
-  }
-  50% { 
-    left: calc(112% - 100px);/*85% регулируют длину движения элемента*/
-    -webkit-transform: rotateY(180deg);
-  }
-  98% {
-    -webkit-transform: rotateY(180deg); 
-  }
-  100% {
-    left: 0;    
-     -webkit-transform: rotateY(0deg);
-  }
-}
-
-.flyingSanta {
-position: absolute;
-top: 44px;
-z-index: 2;
--webkit-animation: linear infinite;
--webkit-animation-name: mymove;
--webkit-animation-duration: 75s;
-}
-
-.filterGarlandeNealySlider{bottom: -2031px;}
-.filterGarlandLeftSlider {right: 290px;}
 }
 
 @media screen and (max-width: 425px) {
-
-@-webkit-keyframes mymove {
-  0% {
-    left: 0;
-  }
-  48% {
-    -webkit-transform: rotateY(0deg); 
-  }
-  50% { 
-    left: calc(202% - 100px);/*85% регулируют длину движения элемента*/
-    -webkit-transform: rotateY(180deg);
-  }
-  98% {
-    -webkit-transform: rotateY(180deg); 
-  }
-  100% {
-    left: 0;    
-     -webkit-transform: rotateY(0deg);
-  }
-}
-
-.flyingSanta {
-position: absolute;
-top: 44px;
-z-index: 2;
--webkit-animation: linear infinite;
--webkit-animation-name: mymove;
--webkit-animation-duration: 75s;
-}
-
-.filterGarlandeNealySlider{bottom: -2031px;}
-.filterGarlandLeftSlider {right: -50px;}
 }
 
 @media screen and (max-width: 375px) {
-
-@-webkit-keyframes mymove {
-  0% {
-    left: 0;
-  }
-  48% {
-    -webkit-transform: rotateY(0deg); 
-  }
-  50% { 
-    left: calc(226% - 100px);/*85% регулируют длину движения элемента*/
-    -webkit-transform: rotateY(180deg);
-  }
-  98% {
-    -webkit-transform: rotateY(180deg); 
-  }
-  100% {
-    left: 0;    
-     -webkit-transform: rotateY(0deg);
-  }
-}
-
-.flyingSanta {
-position: absolute;
-top: 44px;
-z-index: 2;
--webkit-animation: linear infinite;
--webkit-animation-name: mymove;
--webkit-animation-duration: 75s;
-} 
-.filterGarlandeNealySlider{bottom: -2031px;}
-.filterGarlandLeftSlider {right: -94px;}
 }
